@@ -1,10 +1,20 @@
-def init_database():
-    name = ["Picard", "Riker", "Data", "Worf", "Kirk"]
-    rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Captain"]
-    division = ["Command", "Command", "Operations", "Security", "Command"]
-    id = ["01", "02", "03", "04", "05"]
+def main():
+    names, ranks, divisions, ids = init_database()
+    op = display_menu()
 
-    return name, rank, division, id
+    if op == "1":
+        print("Unfinished")
+    
+    elif op == "2":
+        add_member(names, ranks, divisions, ids)
+
+def init_database():
+    n = ["Picard", "Riker", "Data", "Worf", "Kirk"]
+    r = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Captain"]
+    d = ["Command", "Command", "Operations", "Security", "Command"]
+    i = ["1", "2", "3", "4", "5"]
+
+    return n, r, d, i
 
 def display_menu():
     uName = input("Please enter your full name: ")
@@ -21,3 +31,38 @@ def display_menu():
 
     return opt
 
+def add_member(n, r, d, i):
+    name = input("Enter name to be added:")
+    rank = input("Enter rank: ")
+    
+    if rank == "Crewman Third Class" or rank == "Crewman Second Class" or rank == "Crewman First Class":
+        r.append(rank)
+
+    elif rank == "Ensign" or rank == "Lieutenant":
+        r.append(rank)
+
+    elif rank == "Commander" or rank == "Captain" or rank == "Lt. Commander":
+        r.append(rank)
+
+    elif rank == "Commodore" or rank == "Rear Admiral" or rank == "Vice Admiral":
+        r.append(rank)
+
+    else:
+        print("Invalid.")
+        add_member(n, r, d, i)
+
+    division = input("Enter division: ")
+    d.append(division)
+    
+    id = input("Enter new ID: ")
+    
+    for int in range(len(id)):
+        if id == i[int]:
+            print("Invalid.")
+            add_member(n, r, d, i)
+        
+        else:
+            i.append(id)
+
+
+main()
