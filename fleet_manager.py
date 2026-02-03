@@ -64,5 +64,24 @@ def add_member(n, r, d, i):
         else:
             i.append(id)
 
+def remove_member(n, r, d, i):
+    opt = input("Enter the ID you wish to remove: ")
+
+    idx = i.index(opt)
+    n.pop(idx)
+    r.pop(idx)
+    d.pop(idx)
+    i.pop(idx)
+
+def update_rank(n, r, i):
+    id = input("Enter the ID of the member whose rank you wish to change: ")
+    new_rank = input("Enter the new rank: ")
+
+    for int in range(len(i)):
+        if i[int] == id:
+            r[int] = new_rank
+
+
+
 
 main()
