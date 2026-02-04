@@ -24,6 +24,10 @@ def main():
         payroll = calculate_payroll(ranks)
         print("Cost for full crew: ", payroll)
 
+    elif op == "8":
+        count = count_officers(ranks)
+        print("Number of Officers: ", count)
+
 def init_database():
     n = ["Picard", "Riker", "Data", "Worf", "Kirk"]
     r = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Captain"]
@@ -151,6 +155,12 @@ def calculate_payroll(ranks):
 
     return(payroll)
 
+def count_officers(ranks):
+    count = 0
+    for i in range(len(ranks)):
+        if ranks[i] == "Commander" or ranks[i] == "Captain":
+            count = count + 1
 
+    return count
 
 main()
