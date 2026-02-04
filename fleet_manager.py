@@ -20,6 +20,10 @@ def main():
     elif op == "6":
         filter_by_division(names, divisions)
 
+    elif op == "7":
+        payroll = calculate_payroll(ranks)
+        print("Cost for full crew: ", payroll)
+
 def init_database():
     n = ["Picard", "Riker", "Data", "Worf", "Kirk"]
     r = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Captain"]
@@ -129,6 +133,23 @@ def filter_by_division(n, d):
 
     else:
         print("Invalid.")
+
+def calculate_payroll(ranks):
+    payroll = 0
+    for i in range(len(ranks)):
+        if ranks[i] == "Commodore" or ranks[i] == "Rear Admiral" or ranks[i] == "Vice Admiral":
+            payroll = payroll + 2000
+
+        elif ranks[i] == "Commander" or ranks[i] == "Captain":
+            payroll = payroll + 1000
+
+        elif ranks[i] == "Ensign" or ranks[i] == "Lieutenant":
+            payroll = payroll + 500
+
+        elif ranks[i] == "Crewman Third Class" or ranks[i] == "Crewman Second Class" or ranks[i] == "Crewman First Class":
+            payroll = payroll + 200
+
+    return(payroll)
 
 
 
