@@ -81,6 +81,29 @@ def update_rank(n, r, i):
         if i[int] == id:
             r[int] = new_rank
 
+def display_roster(n, r, d, i):
+    print(f"{'ID':<5} {'Name':<10} {'Rank':>20} {'Division':>20}")
+    print("---------------------------------------------------------------------------")
+
+    for id, name, rank, division in zip(i, n, r, d):
+        print(f"{id:<5} {name:<10} {rank:>20} {division:>20}")
+    
+def search_crew(n, r, d, i):
+    term = input("Please enter a search term: ")
+
+    for int in range(len(n)):
+        if term == n[int]:
+            print(n[int], " ", r[int], " ", d[int], " ", i[int])
+        
+        elif term == r[int]:
+            print(n[int], " ", r[int], " ", d[int], " ", i[int])
+
+        elif term == d[int]:
+            print(n[int], " ", r[int], " ", d[int], " ", i[int])
+
+        elif term == i[int]:
+            print(n[int], " ", r[int], " ", d[int], " ", i[int])
+
 
 
 
