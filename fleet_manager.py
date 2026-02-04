@@ -3,10 +3,19 @@ def main():
     op = display_menu()
 
     if op == "1":
-        print("Unfinished")
+        display_roster(names, ranks, divisions, ids)
     
     elif op == "2":
         add_member(names, ranks, divisions, ids)
+
+    elif op == "3":
+        remove_member(names, ranks, divisions, ids)
+
+    elif op == "4":
+        update_rank(names, ranks, ids)
+
+    elif op == "5":
+        search_crew(names, ranks, divisions, ids)
 
 def init_database():
     n = ["Picard", "Riker", "Data", "Worf", "Kirk"]
@@ -24,8 +33,9 @@ def display_menu():
     print("1) View Crew Members")
     print("2) Add Crew Member")
     print("3) Remove Crew Member")
-    print("4) Analyse Data")
-    print("5) Exit")
+    print("4) Update Rank")
+    print("5) Search Crew Name")
+    print("6) ")
 
     opt = input("Select option: ")
 
@@ -93,15 +103,6 @@ def search_crew(n, r, d, i):
 
     for int in range(len(n)):
         if term == n[int]:
-            print(n[int], " ", r[int], " ", d[int], " ", i[int])
-        
-        elif term == r[int]:
-            print(n[int], " ", r[int], " ", d[int], " ", i[int])
-
-        elif term == d[int]:
-            print(n[int], " ", r[int], " ", d[int], " ", i[int])
-
-        elif term == i[int]:
             print(n[int], " ", r[int], " ", d[int], " ", i[int])
 
 
