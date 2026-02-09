@@ -1,32 +1,40 @@
 def main():
     names, ranks, divisions, ids = init_database()
-    op = display_menu()
+    uName = input("Please enter your full name: ")
 
-    if op == "1":
-        display_roster(names, ranks, divisions, ids)
+    print(uName, " logged in!")
+
+    while True:
+        op = display_menu()
+        if op == "1":
+            display_roster(names, ranks, divisions, ids)
     
-    elif op == "2":
-        add_member(names, ranks, divisions, ids)
+        elif op == "2":
+            names, ranks, divisions, ids = add_member(names, ranks, divisions, ids)
 
-    elif op == "3":
-        remove_member(names, ranks, divisions, ids)
+        elif op == "3":
+            names, ranks, divisions, ids = remove_member(names, ranks, divisions, ids)
 
-    elif op == "4":
-        update_rank(names, ranks, ids)
+        elif op == "4":
+            update_rank(names, ranks, ids)
 
-    elif op == "5":
-        search_crew(names, ranks, divisions, ids)
+        elif op == "5":
+            search_crew(names, ranks, divisions, ids)
 
-    elif op == "6":
-        filter_by_division(names, divisions)
+        elif op == "6":
+            filter_by_division(names, divisions)
 
-    elif op == "7":
-        payroll = calculate_payroll(ranks)
-        print("Cost for full crew: ", payroll)
+        elif op == "7":
+            payroll = calculate_payroll(ranks)
+            print("Cost for full crew: ", payroll)
 
-    elif op == "8":
-        count = count_officers(ranks)
-        print("Number of Officers: ", count)
+        elif op == "8":
+            count = count_officers(ranks)
+            print("Number of Officers: ", count)
+
+        elif op == "9":
+            print("Shutting down...")
+            break
 
 def init_database():
     n = ["Picard", "Riker", "Data", "Worf", "Kirk"]
@@ -37,9 +45,6 @@ def init_database():
     return n, r, d, i
 
 def display_menu():
-    uName = input("Please enter your full name: ")
-
-    print(uName, " logged in!")
     print("\n--- MENU ---")
     print("1) View Crew Members")
     print("2) Add Crew Member")
@@ -87,6 +92,8 @@ def add_member(n, r, d, i):
         else:
             i.append(id)
 
+    return n, r, d, i
+
 def remove_member(n, r, d, i):
     opt = input("Enter the ID you wish to remove: ")
 
@@ -95,6 +102,8 @@ def remove_member(n, r, d, i):
     r.pop(idx)
     d.pop(idx)
     i.pop(idx)
+
+    return n, r, d, i
 
 def update_rank(n, r, i):
     id = input("Enter the ID of the member whose rank you wish to change: ")
