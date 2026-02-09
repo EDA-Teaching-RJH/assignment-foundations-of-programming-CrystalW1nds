@@ -61,6 +61,9 @@ def display_menu():
 
 def add_member(n, r, d, i):
     name = input("Enter name to be added:")
+
+    n.append(name)
+
     rank = input("Enter rank: ")
     
     if rank == "Crewman Third Class" or rank == "Crewman Second Class" or rank == "Crewman First Class":
